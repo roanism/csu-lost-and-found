@@ -1,0 +1,107 @@
+@startuml CSU Lost and Found System - ERD
+
+' Set diagram size
+scale 700x600
+
+' Styling
+skinparam class {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    ArrowColor DarkBlue
+}
+
+' Entities
+entity "users" as users {
+    * id : bigint <<PK>>
+    --
+    * name : string
+    * email : string <<unique>>
+    email_verified_at : timestamp
+    * password : string
+    remember_token : string
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+entity "admins" as admins {
+    * id : bigint <<PK>>
+    --
+    * name : string
+    * username : string <<unique>>
+    * password : string
+    remember_token : string
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+entity "posts" as posts {
+    * id : bigint <<PK>>
+    --
+    * type : enum(lost,found)
+    * item_name : string
+    * description : text
+    category : string
+    location : string
+    * contact_name : string
+    * contact_info : string
+    image_path : string
+    * reference_number : string <<unique>>
+    * status : enum(open,pending_claim,pending_return,claimed,returned)
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+entity "claims" as claims {
+    * id : bigint <<PK>>
+    --
+    * post_id : bigint <<FK>>
+    * claimer_name : string
+    * claimer_email : string
+    * claimer_phone : string
+    * claim_reason : text
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+entity "reports" as reports {
+    * id : bigint <<PK>>
+    --
+    * post_id : bigint <<FK>>
+    reporter_name : string
+    reporter_contact : string
+    * reason : text
+    * resolved : boolean
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+entity "contact_messages" as contact_messages {
+    * id : bigint <<PK>>
+    --
+    * name : string
+    * email : string
+    phone : string
+    * message : text
+    * user_type : enum(insider,outsider)
+    * is_read : boolean
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+' Relationships
+posts ||--o{ claims : "has"
+posts ||--o{ reports : "has"
+
+' Layout hints
+together {
+    posts
+    claims
+    reports
+}
+
+together {
+    users
+    admins
+}
+
+@enduml 

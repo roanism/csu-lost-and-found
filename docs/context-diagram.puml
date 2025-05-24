@@ -1,0 +1,60 @@
+@startuml CSU Lost and Found System - Context Diagram
+
+' Set diagram size
+scale 700x600
+
+' Styling
+skinparam componentStyle rectangle
+skinparam component {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    ArrowColor DarkBlue
+}
+
+' System Boundary
+rectangle "CSU Lost and Found System" as system {
+    component "Web Interface" as web
+    component "Database" as db
+    component "Authentication System" as auth
+    component "File Storage" as storage
+    component "Notification System" as notify
+}
+
+' External Entities
+actor "Admin" as admin
+actor "CSU Student" as student
+actor "CSU Staff" as staff
+actor "External User" as external
+actor "Email Service" as email
+actor "File System" as files
+
+' Relationships
+admin --> web : "Manage System"
+student --> web : "Report Lost Items\nSearch Found Items"
+staff --> web : "Process Claims\nHandle Reports"
+external --> web : "View Public Items\nSubmit Contact Form"
+
+web --> auth : "Verify Users"
+web --> db : "Store/Retrieve Data"
+web --> storage : "Store Images"
+web --> notify : "Send Alerts"
+
+notify --> email : "Send Emails"
+storage --> files : "Store Files"
+
+' Layout hints
+together {
+    student
+    staff
+    external
+}
+
+together {
+    web
+    db
+    auth
+    storage
+    notify
+}
+
+@enduml 

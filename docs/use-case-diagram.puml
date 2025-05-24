@@ -1,0 +1,105 @@
+@startuml CSU Lost and Found System
+
+' Set diagram size
+scale 700x600
+
+' Styling
+skinparam actorStyle awesome
+skinparam usecase {
+    BackgroundColor<< Main >> LightBlue
+    BorderColor<< Main >> DarkBlue
+    BackgroundColor<< Secondary >> LightGreen
+    BorderColor<< Secondary >> DarkGreen
+}
+
+' Actors
+actor "Admin" as admin
+actor "User" as user
+actor "Guest" as guest
+
+' Use Cases
+rectangle "CSU Lost and Found System" {
+    ' Core Functionality
+    usecase "Manage Items" as UC1 << Main >>
+    usecase "Process Claims" as UC2 << Main >>
+    usecase "Handle Reports" as UC3 << Main >>
+    
+    ' User Management
+    usecase "Manage Users" as UC4 << Main >>
+    usecase "View Dashboard" as UC5 << Main >>
+    
+    ' Item Interaction
+    usecase "Search Items" as UC6 << Secondary >>
+    usecase "View Details" as UC8 << Secondary >>
+    usecase "Submit Contact" as UC7 << Secondary >>
+    
+    ' System Management
+    usecase "Manage Categories" as UC9 << Secondary >>
+    usecase "Generate Reports" as UC10 << Secondary >>
+    usecase "View Statistics" as UC11 << Secondary >>
+    
+    ' Authentication
+    usecase "Register" as UC12 << Secondary >>
+    usecase "Login" as UC13 << Secondary >>
+    usecase "Reset Password" as UC14 << Secondary >>
+}
+
+' Admin Relationships
+admin --> UC1
+admin --> UC2
+admin --> UC3
+admin --> UC4
+admin --> UC5
+admin --> UC9
+admin --> UC10
+admin --> UC11
+
+' User Relationships
+user --> UC6
+user --> UC7
+user --> UC8
+user --> UC12
+user --> UC13
+user --> UC14
+
+' Guest Relationships
+guest --> UC6
+guest --> UC7
+guest --> UC8
+guest --> UC12
+guest --> UC13
+guest --> UC14
+
+' Use Case Dependencies
+UC1 ..> UC8 : <<include>>
+UC2 ..> UC8 : <<include>>
+UC3 ..> UC8 : <<include>>
+UC6 ..> UC8 : <<include>>
+UC4 ..> UC13 : <<include>>
+UC5 ..> UC10 : <<extend>>
+UC5 ..> UC11 : <<extend>>
+
+' Layout hints
+together {
+    UC1
+    UC2
+    UC3
+}
+
+together {
+    UC4
+    UC5
+}
+
+together {
+    UC6
+    UC8
+}
+
+together {
+    UC12
+    UC13
+    UC14
+}
+
+@enduml 

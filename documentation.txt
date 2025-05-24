@@ -1,0 +1,216 @@
+# CSU Lost and Found System
+A Course Requirement of
+Software Engineering 1 (CSC 106)
+
+Submitted to:
+James Presbitero
+
+Submitted by:
+Charles Roan A. Escanilla
+
+Date of Submission:
+[Current Date]
+
+## Table of Contents
+1. Title Page
+2. Table of Contents
+3. Introduction
+4. Project Background
+5. Stakeholder and User Analysis
+6. User Stories and Requirements Analysis
+7. System Requirements
+8. System Architecture and Design
+9. Project Development
+10. Conclusion
+11. References
+
+## I. INTRODUCTION
+
+### A. Overview of the Project
+The CSU Lost and Found System is a web-based platform designed to streamline the process of reporting and recovering lost items within the Caraga State University campus. The system provides a centralized, user-friendly interface for posting and managing lost and found items.
+
+### a. Problem Statement
+The current system of posting lost and found items on social media platforms is inefficient and unreliable. Items can easily get buried under other posts, making it difficult for owners to find their lost belongings or for finders to locate the rightful owners.
+
+### b. Objectives of the Study
+- Create a dedicated platform for posting and managing lost and found items
+- Implement a structured system for item categorization and tracking
+- Provide a user-friendly interface for both campus insiders and outsiders
+- Establish a transparent process for item claims and returns
+- Enable efficient communication between finders and owners
+
+### c. Scope and Limitations
+**Scope:**
+- Posting and browsing of lost/found items
+- Item categorization and filtering
+- Image upload support
+- Reference number system for tracking
+- Admin panel for post management
+- Contact form for admin assistance
+- History tracking of claimed/returned items
+
+**Limitations:**
+- No user authentication system
+- No real-time messaging between users
+- No automated matching system
+- Limited to web platform only
+
+## II. PROJECT BACKGROUND
+
+### a. Description of the Project Domain
+The system operates within the Caraga State University campus environment, serving students, faculty, staff, and visitors who may lose or find items on campus.
+
+### b. Current System
+Currently, lost and found items are primarily posted on social media platforms like Facebook, which leads to:
+- Unstructured posting format
+- Difficulty in searching for specific items
+- Lack of proper categorization
+- No systematic tracking of claims
+- Potential privacy concerns
+
+### c. Justification of the Proposed System
+The new system provides:
+- Structured posting format
+- Efficient search and filtering capabilities
+- Proper item categorization
+- Transparent claim process
+- Admin oversight and moderation
+- Privacy protection through reference numbers
+
+## III. STAKEHOLDER AND USER ANALYSIS
+
+### A. User Personas
+1. **Students**
+   - Primary users
+   - Need to report lost items or return found items
+   - Require easy access and simple interface
+
+2. **Faculty/Staff**
+   - Regular users
+   - May find items in their offices/classrooms
+   - Need to report lost items
+
+3. **Campus Visitors**
+   - Occasional users
+   - May find or lose items on campus
+   - Need clear instructions for item return
+
+4. **Administrators**
+   - System managers
+   - Monitor and moderate posts
+   - Handle user reports
+   - Manage item claims
+
+### B. User Stories
+1. As a student, I want to post about my lost ID card so I can recover it quickly
+2. As a faculty member, I want to report a found laptop so the owner can claim it
+3. As a visitor, I want to return a found item to the proper authority
+4. As an admin, I want to verify and approve item claims
+5. As a user, I want to search for my lost item by category and date
+
+## IV. SYSTEM REQUIREMENTS
+
+### a. Hardware Requirements
+- Web server with minimum 4GB RAM
+- 100GB storage space
+- Standard web hosting environment
+
+### b. Software Requirements
+- PHP 8.0 or higher
+- MySQL 5.7 or higher
+- Laravel Framework 8.x
+- Web server (Apache/Nginx)
+- Modern web browser
+
+### c. Database Requirements
+- MySQL database
+- Tables:
+  - posts (items)
+  - claims
+  - reports
+  - admins
+  - contacts
+
+### d. Network Requirements
+- Internet connection
+- HTTPS protocol
+- Standard web hosting environment
+
+## V. SYSTEM ARCHITECTURE AND DESIGN
+
+### A. Technology Stack
+- Frontend:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Bootstrap 4.6
+- Backend:
+  - PHP 8.0
+  - Laravel Framework
+- Database:
+  - MySQL
+- Server:
+  - Apache
+  - XAMPP (Development)
+
+### B. Key Features
+1. **Item Management**
+   - Post creation
+   - Image upload
+   - Category selection
+   - Status tracking
+
+2. **Search and Filter**
+   - Category filtering
+   - Date filtering
+   - Reference number search
+   - Status filtering
+
+3. **Admin Panel**
+   - Post moderation
+   - Claim approval
+   - Report management
+   - User communication
+
+4. **Security Features**
+   - Reference number system
+   - Admin authentication
+   - Input validation
+   - XSS protection
+
+## VI. PROJECT DEVELOPMENT
+
+### A. Development Methodology
+- Agile development approach
+- Iterative development cycles
+- Regular testing and feedback
+- Continuous improvement
+
+### B. Key Components
+1. **User Interface**
+   - Responsive design
+   - Mobile-friendly layout
+   - Intuitive navigation
+   - CSU branding
+
+2. **Database Structure**
+   - Normalized tables
+   - Efficient indexing
+   - Data integrity
+   - Backup system
+
+3. **Security Measures**
+   - Input sanitization
+   - CSRF protection
+   - Secure file upload
+   - Admin authentication
+
+## VII. CONCLUSION
+The CSU Lost and Found System provides a comprehensive solution for managing lost and found items within the university. It offers a structured, user-friendly platform that improves upon the current social media-based system. The implementation of features like item categorization, reference numbers, and admin oversight ensures a more efficient and reliable process for item recovery.
+
+## VIII. REFERENCES
+- Laravel Documentation (https://laravel.com/docs)
+- Bootstrap Documentation (https://getbootstrap.com/docs)
+- MySQL Documentation (https://dev.mysql.com/doc/)
+- CSU Official Website
+- Best Practices in Web Development 
